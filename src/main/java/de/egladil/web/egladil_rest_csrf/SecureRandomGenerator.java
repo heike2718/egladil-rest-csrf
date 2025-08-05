@@ -32,8 +32,7 @@ public class SecureRandomGenerator {
 
         byte[] randomValue = new byte[numberOfBytes];
         secureRandom.nextBytes(randomValue);
-        String randomValueHex = HEX_FORMAT.formatHex(randomValue);
-        return randomValueHex;
+        return HEX_FORMAT.formatHex(randomValue);
     }
 
     /**

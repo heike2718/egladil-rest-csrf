@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CsrfTokenValidatorTest {
 
     private final String salt = "idididsessionidididsessionidididsessionidsessionidsessionididids";
-    private CsrfTokenValidator csrfTokenValidator = new CsrfTokenValidator();
+    private final CsrfTokenValidator csrfTokenValidator = new CsrfTokenValidator();
 
     @Test
     void should_verifyCsrfTokenThrowCsrfTokenValidationFailedException_when_onlyOnePart() {

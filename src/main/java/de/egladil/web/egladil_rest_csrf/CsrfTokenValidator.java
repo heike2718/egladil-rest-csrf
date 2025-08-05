@@ -10,10 +10,10 @@ public class CsrfTokenValidator {
     /**
      * Verifies the signature of the csrfToken.
      *
-     * @param csrfToken
-     * @param salt
-     * @param validKey
-     * @throws CsrfTokenValidationFailedException
+     * @param csrfToken String. the token that signature has to be verified
+     * @param salt String. the salt that was used for the generated token
+     * @param validKey byte[]. the private key used to sign
+     * @throws CsrfTokenValidationFailedException when the verificytion fails
      */
     public void verifyCsrfToken(String csrfToken, String salt, byte[] validKey) throws CsrfTokenValidationFailedException {
 

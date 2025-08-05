@@ -71,7 +71,7 @@ public class HmacGeneratorTest {
         Exception exception = assertThrows(SecurityException.class,
                 () -> hmacGenerator.generateHmac(testMessage, invalidAlgorithm, validKey));
 
-        assertTrue(exception.getCause() instanceof NoSuchAlgorithmException);
+        assertInstanceOf(NoSuchAlgorithmException.class, exception.getCause());
         assertEquals("Failed to generate hmac", exception.getMessage());
     }
 

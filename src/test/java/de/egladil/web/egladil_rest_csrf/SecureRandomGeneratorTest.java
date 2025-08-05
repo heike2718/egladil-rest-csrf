@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.mockito.MockedStatic;
 
 import java.security.SecureRandom;
 import java.util.stream.Stream;
@@ -14,11 +13,11 @@ import static org.mockito.Mockito.*;
 
 public class SecureRandomGeneratorTest {
 
-    private SecureRandomGenerator secureRandomGenerator = new SecureRandomGenerator();
+    private final SecureRandomGenerator secureRandomGenerator = new SecureRandomGenerator();
 
     static Stream<Arguments> provideInvalidKByteLenghts() {
         return Stream.of(
-                Arguments.of(Integer.valueOf(0)),
+                Arguments.of(0),
                 Arguments.of(Integer.valueOf(1)), // too short
                 Arguments.of(Integer.valueOf(31)) // minimum boundary
         );
@@ -28,7 +27,7 @@ public class SecureRandomGeneratorTest {
     @MethodSource("provideInvalidKByteLenghts")
     void generateHmac_generateSecureRandomHexRejectInvalidByteLength(Integer invalidByteLength) {
         assertThrows(IllegalArgumentException.class,
-                () -> secureRandomGenerator.generateSecureRandomHex(invalidByteLength.intValue()));
+                () -> secureRandomGenerator.generateSecureRandomHex(invalidByteLength));
     }
 
     @Test

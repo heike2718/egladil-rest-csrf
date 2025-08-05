@@ -51,9 +51,8 @@ class HmacGenerator {
             Mac hmac = Mac.getInstance(hmacAlgorithm);
             hmac.init(new SecretKeySpec(secretKey, hmacAlgorithm));
             byte[] hmacBytes = hmac.doFinal(messagePayload.getBytes());
-            String hmacHex = HEX_FORMAT.formatHex(hmacBytes);
 
-            return hmacHex;
+            return HEX_FORMAT.formatHex(hmacBytes);
         } catch (NoSuchAlgorithmException | InvalidKeyException e) {
             LOGGER.error("Failed to generate hmac: {}", e.getMessage());
             throw new SecurityException("Failed to generate hmac", e);
@@ -62,9 +61,9 @@ class HmacGenerator {
 
     /**
      * The messagePayload that is going to be hashed.
-     * @param salt
-     * @param randomValueHex
-     * @return
+     * @param salt String. the salt that ist used for the token
+     * @param randomValueHex String. the random string of the token
+     * @return String
      */
     String getHmacMessagePayload(String salt, String randomValueHex) {
 

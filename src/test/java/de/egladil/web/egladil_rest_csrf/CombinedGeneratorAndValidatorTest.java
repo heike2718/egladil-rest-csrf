@@ -14,9 +14,9 @@ public class CombinedGeneratorAndValidatorTest {
 
     private byte[] validKey;
 
-    private CsrfTokenGenerator csrfTokenGenerator = new CsrfTokenGenerator();
+    private final CsrfTokenGenerator csrfTokenGenerator = new CsrfTokenGenerator();
 
-    private CsrfTokenValidator csrfTokenValidator = new CsrfTokenValidator();
+    private final CsrfTokenValidator csrfTokenValidator = new CsrfTokenValidator();
 
     @BeforeEach
     void setUp() {

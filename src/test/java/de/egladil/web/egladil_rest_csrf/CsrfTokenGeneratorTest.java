@@ -13,7 +13,7 @@ public class CsrfTokenGeneratorTest {
 
     private byte[] validKey;
 
-    private CsrfTokenGenerator csrfTokenGenerator = new CsrfTokenGenerator();
+    private final CsrfTokenGenerator csrfTokenGenerator = new CsrfTokenGenerator();
 
     @BeforeEach
     void setUp() {
