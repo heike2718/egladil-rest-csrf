@@ -18,8 +18,8 @@ public class SecureRandomGeneratorTest {
     static Stream<Arguments> provideInvalidKByteLenghts() {
         return Stream.of(
                 Arguments.of(0),
-                Arguments.of(Integer.valueOf(1)), // too short
-                Arguments.of(Integer.valueOf(31)) // minimum boundary
+                Arguments.of(1), // too short
+                Arguments.of( 31) // minimum boundary
         );
     }
 
