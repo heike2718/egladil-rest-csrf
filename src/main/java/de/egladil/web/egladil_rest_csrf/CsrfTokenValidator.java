@@ -33,7 +33,7 @@ public class CsrfTokenValidator {
         HmacGenerator hmacGenerator = new HmacGenerator();
 
         String messagePayload = hmacGenerator.getHmacMessagePayload(salt, randomValueHex);
-        String expectedHmacHex = new HmacGenerator().generateHmac(messagePayload, HmacGenerator.HMAC_ALGORITHM, validKey);
+        String expectedHmacHex = hmacGenerator.generateHmac(messagePayload, HmacGenerator.HMAC_ALGORITHM, validKey);
 
         if (!MessageDigest.isEqual(expectedHmacHex.getBytes(), hmacFromRequest.getBytes())) {
             throw new CsrfTokenValidationFailedException("csrf-token signature verification failed");
