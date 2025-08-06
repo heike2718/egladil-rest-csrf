@@ -1,4 +1,4 @@
-package de.egladil.web.egladil_rest_csrf;
+package de.egladil.web.egladil_secure_tokens;
 
 import java.security.SecureRandom;
 import java.util.HexFormat;

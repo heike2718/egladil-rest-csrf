@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.egladil.web</groupId>
-    <artifactId>egladil-rest-csrf</artifactId>
-    <version>0.0.2</version>
+    <artifactId>egladil-secure-tokens</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
 
@@ -187,7 +187,7 @@
                                 <!-- Stricter rules for important packages -->
                                 <rule>
                                     <element>PACKAGE</element>
-                                    <includes>de.egladil.web.egladil_rest_csrf.*</includes> <!-- Your core package -->
+                                    <includes>de.egladil.web.egladil_secure_tokens.*</includes> <!-- Your core package -->
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
@@ -232,10 +232,10 @@
                         <format>XML</format>
                     </outputFormats>
                     <targetClasses>
-                        <param>de.egladil.web.egladil_rest_csrf.*</param> <!-- Adjust to your package -->
+                        <param>de.egladil.web.egladil_secure_tokens.*</param> <!-- Adjust to your package -->
                     </targetClasses>
                     <targetTests>
-                        <param>de.egladil.web.egladil_rest_csrf.*</param> <!-- Adjust to your test package -->
+                        <param>de.egladil.web.egladil_secure_tokens.*</param> <!-- Adjust to your test package -->
                     </targetTests>
                     <mutationThreshold>100</mutationThreshold>
                     <testStrengthThreshold>100</testStrengthThreshold>

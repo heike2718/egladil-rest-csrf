@@ -1,6 +1,6 @@
-# egladil-rest-csrf
+# egladil-secure-tokens
 
-This is a small library that supports csrf protection by implementing tools to generate and validate signed tokens as needed for the
+This is a small library that provides tools to generate and validate signed tokens as, for example, needed for the
 the signed Double-Submit Cookie-Pattern recommended by OWASP: https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#alternative-using-a-double-submit-cookie-pattern
 
 ## usage
