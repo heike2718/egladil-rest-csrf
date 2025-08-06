@@ -1,4 +1,4 @@
-package de.egladil.web.egladil_rest_csrf;
+package de.egladil.web.egladil_secure_tokens;
 
 /**
  * SignedTokenGenerator. Generates a signed token that is stateless itself.

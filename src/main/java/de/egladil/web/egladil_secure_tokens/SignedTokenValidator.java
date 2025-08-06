@@ -1,4 +1,4 @@
-package de.egladil.web.egladil_rest_csrf;
+package de.egladil.web.egladil_secure_tokens;
 
 /**
  * SignedTokenValidator verifies the signature of a signed token.
