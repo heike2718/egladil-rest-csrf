@@ -9,11 +9,11 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class CsrfTokenGeneratorTest {
+public class SignedTokenGeneratorTest {
 
     private byte[] validKey;
 
-    private final CsrfTokenGenerator csrfTokenGenerator = new CsrfTokenGenerator();
+    private final SignedTokenGenerator tokenGenerator = new SignedTokenGenerator();
 
     @BeforeEach
     void setUp() {
@@ -23,17 +23,17 @@ public class CsrfTokenGeneratorTest {
     }
 
     @Test
-    void should_generateACsrfToken() {
+    void should_generateAToken() {
 
         // Arrange
         String salt = "this-could-be-a-session-id";
 
         // Act
-        String csrfToken = csrfTokenGenerator.generateToken(salt, validKey);
+        String token = tokenGenerator.generateToken(salt, validKey);
 
         // Assert
-        assertNotNull(csrfToken);
-        String[] parts = csrfToken.split("\\.");
+        assertNotNull(token);
+        String[] parts = token.split("\\.");
 
         assertEquals(2, parts.length);
     }

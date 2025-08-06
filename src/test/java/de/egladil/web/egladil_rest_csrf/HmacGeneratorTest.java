@@ -142,8 +142,8 @@ public class HmacGeneratorTest {
     @Test
     void generateHmac_shouldBeDeterministicWithSameInput() {
         // Act
-        String hmac1 = hmacGenerator.generateHmac(testMessage, validAlgorithm, validKey);
-        String hmac2 = hmacGenerator.generateHmac(testMessage, validAlgorithm, validKey);
+        String hmac1 = hmacGenerator.generateHmac(testMessage, validKey);
+        String hmac2 = hmacGenerator.generateHmac(testMessage, validKey);
 
         // Assert
         assertEquals(hmac1, hmac2);
@@ -163,6 +163,17 @@ public class HmacGeneratorTest {
 
         // Assert
         assertEquals(expected, actual);
+
+    }
+
+    @Test
+    void should_public_generateHmac_work() {
+
+       // Act
+        String actual = hmacGenerator.generateHmac(testMessage, validKey);
+
+        // Assert
+        assertEquals("1ef70f5078975bb00ad4e7809510afa81412defdfdcc58c329d6ce5502e70a7d", actual);
 
     }
 }

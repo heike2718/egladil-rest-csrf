@@ -17,7 +17,18 @@ class HmacGenerator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HmacGenerator.class);
 
-    static final String HMAC_ALGORITHM = "HmacSHA256";
+    public static final String HMAC_ALGORITHM = "HmacSHA256";
+
+    /**
+     * signes the messagePayload with the secretKey and returns it as hex encoded String.
+     *
+     * @param messagePayload String. The message that is going to be signed. Must not be null.
+     * @param secretKey byte[]. The secret. The length of the Array must be 64.
+     * @return String
+     */
+    public String generateHmac(String messagePayload, byte[] secretKey) {
+        return this.generateHmac(messagePayload, HMAC_ALGORITHM, secretKey);
+    }
 
     /**
      * signes the messagePayload with the secretKey and returns it as hex encoded String.

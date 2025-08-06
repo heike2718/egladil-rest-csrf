@@ -14,9 +14,9 @@ public class CombinedGeneratorAndValidatorTest {
 
     private byte[] validKey;
 
-    private final CsrfTokenGenerator csrfTokenGenerator = new CsrfTokenGenerator();
+    private final SignedTokenGenerator tokenGenerator = new SignedTokenGenerator();
 
-    private final CsrfTokenValidator csrfTokenValidator = new CsrfTokenValidator();
+    private final SignedTokenValidator tokenValidator = new SignedTokenValidator();
 
     @BeforeEach
     void setUp() {
@@ -28,20 +28,20 @@ public class CombinedGeneratorAndValidatorTest {
     @Test
     void should_theGeneratedTokenBeValid() {
 
-        String csrfToken = csrfTokenGenerator.generateToken(salt, validKey);
+        String token = tokenGenerator.generateToken(salt, validKey);
 
         assertDoesNotThrow(() ->
-                csrfTokenValidator.verifyCsrfToken(csrfToken, salt, validKey));
+                tokenValidator.verifyToken(token, salt, validKey));
     }
 
     @Test
     void should_validationFail_when_tokenChanged() {
 
-        String csrfToken = "2418649169.78305717501730";
+        String token = "2418649169.78305717501730";
 
-        CsrfTokenValidationFailedException exception = assertThrows(CsrfTokenValidationFailedException.class,
-                () -> csrfTokenValidator.verifyCsrfToken(csrfToken, salt, validKey));
+        SignedTokenValidationFailedException exception = assertThrows(SignedTokenValidationFailedException.class,
+                () -> tokenValidator.verifyToken(token, salt, validKey));
 
-        assertEquals("csrf-token signature verification failed", exception.getMessage());
+        assertEquals("token signature verification failed", exception.getMessage());
     }
 }

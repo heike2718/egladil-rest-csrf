@@ -5,14 +5,11 @@
 
     <groupId>de.egladil.web</groupId>
     <artifactId>egladil-rest-csrf</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
 
     <properties>
-
-        <!-- IntelliJ kennt die Property jetzt und löst sie auf -->
-        <surefireArgLine></surefireArgLine>
 
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
